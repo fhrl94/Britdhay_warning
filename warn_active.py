@@ -50,5 +50,5 @@ if __name__ == '__main__':
         #  收件人需要获取
         # 使用 to_address_dict 传递 收件人字典
         task.run(WarningPlay.play, to_address=to_address_dict, logger=logger, send_mail=send_mail, loading=loading,
-                 date=datetime.date.today() + datetime.timedelta(days=4))
+                 date=datetime.date.today() + datetime.timedelta(days=0))
         logger.debug("当次执行完毕")
