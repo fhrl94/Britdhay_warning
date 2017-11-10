@@ -36,7 +36,7 @@ class WarningPlay(object):
             loading.run(today=date, after_day=1, number=i, )
             #  邮件发送
             send_mail.send(to_address=to_address,
-                           header="{month}的生日预警".format(month=(date + datetime.timedelta(days=1)).month), )
+                           header="{month}月-生日预警".format(month=(date + datetime.timedelta(days=1)).month), )
             logger.debug("查询日期天数:{day}".format(day=i))
             logger.debug("月预警发送完成")
         # 判断时间，如果时间为周五，调用unloading 存到 周转存表
@@ -45,7 +45,7 @@ class WarningPlay(object):
             logger.debug("周预警开始执行")
             loading.run(today=date, after_day=3, number=7, )
             #  邮件发送
-            send_mail.send(to_address=to_address, header="{days}的生日预警".format(days=date), )
+            send_mail.send(to_address=to_address, header="{days}-下周生日预警".format(days=date), )
             logger.debug("查询日期天数:{day}".format(day=7))
             logger.debug("周预警发送完成")
         logger.debug("执行完毕开始休眠23H")
