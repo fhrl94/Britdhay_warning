@@ -64,6 +64,10 @@ class EmailSend(Send):
         """
         self.logger.debug("开始发送邮件")
         for emp in self._get_data():
+            # 判断是否是空列表
+            if not emp.get('employee_list'):
+                self.logger.debug("{name}-无生日预警人员".format(name=emp.get('superior', "未发送")))
+                continue
             body = self.templates.render(brith_list=emp.get('employee_list'))
             if emp.get('superior', False):
                 # 更新发送数据
